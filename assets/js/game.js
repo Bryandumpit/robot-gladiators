@@ -1,20 +1,41 @@
-var playerName = window.prompt("What is your robot's name");
+//pseudocode:
+//GAME STATES
+//"WIN" - Player's robot has defeated all enemy-robots
+//  *Fight all enemy-robots
+//  +Defeat each enemy-robot
+//"LOSE" - Player's robot health is zero or less
+
+var playerName = "bryan"; //window.prompt("What is your robot's name")
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
 //You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
+//console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames =["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+//console.log(enemyNames);
+//console.log(enemyNames[0]);
+//console.log(enemyNames[1]);
+//console.log(enemyNames[2]);
+
+//for(var i = 0; i<enemyNames.length; i++) {
+//    console.log (enemyNames[i]);
+//    console.log (i);
+//    console.log (enemyNames[i] + " is at " + i + " index");
+//}
+//console logged apple0 apple1 apple2--which means it iterated 3 times (first iteration is apple0)
+
+var fight = function (enemyName) {//think of 'enemyName' as an arbitrary name for a parameter the function will use. 
+    //i.e if you call fight() later on and put fight(enemyNames), you entered a value of 'enemyNames' (which is an array) into the parameter you named enemyName.
+    
     //alert players that they are starting the round
     window.alert ("Welcome to Robot Gladiators!");
 
-    var promptFight = window.prompt("Would you like to FIGHT or SKIP this batte? Enter 'FIGHT' or 'SKIP' to choose.");
+    var promptFight = window.prompt("Would you like to FIGHT or SKIP this batte? Enter 'FIGHT' or 'SKIP' to choose.");//scope-this variable only exists within this function. cannot be called outside of this function.
 
     //if player chooses to fight, then fight
     if (promptFight === "fight" || promptFight === "FIGHT") {
@@ -64,9 +85,14 @@ var fight = function() {
         }
 
     } else {
-        window.alert("You need to hoose a valid option. Try again!");
+        window.alert("You need to choose a valid option. Try again!");
     };
 };
 
-fight();
+for (var i=0; i < enemyNames.length; i++){
+    fight(enemyNames[i]);
+    //enemyNames[i] calls a value in array enemyNames with the index of i, because the array is in a for loop; the index i will be incremented  as long as the condition (i < enemyNames.length) is met.
+    //function fight() was called and parameter 'enemyRobot' was set to equal 'enemyNames' (which was defined as an array)
+}
+
 
