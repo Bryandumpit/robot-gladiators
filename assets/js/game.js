@@ -102,10 +102,18 @@ var fight = function (enemyName) {//think of 'enemyName' as an arbitrary name fo
 };
 
 for (var i=0; i < enemyNames.length; i++){
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth=50;
+    if (playerHealth > 0){
+        window.alert("Welcome to Roboto Gladiators! Round " + (i+1));
+        var pickedEnemyName = enemyNames[i];
+        
+        enemyHealth=50;
     
-    fight(pickedEnemyName);
+        fight(pickedEnemyName);
+    } else {
+        window.alert("You have lost your robot in battle! Game Over!");
+        break;
+    }
+    
     //enemyNames[i] calls a value in array enemyNames with the index of i, because the array is in a for loop; the index i will be incremented  as long as the condition (i < enemyNames.length) is met.
     //function fight() was called and parameter 'enemyRobot' was set to equal 'enemyNames' (which was defined as an array)
 }
