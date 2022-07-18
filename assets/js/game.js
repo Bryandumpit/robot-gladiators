@@ -149,6 +149,7 @@ var startGame = function(){
         //enemyNames[i] calls a value in array enemyNames with the index of i, because the array is in a for loop; the index i will be incremented  as long as the condition (i < enemyNames.length) is met.
         //function fight() was called and parameter 'enemyRobot' was set to equal 'enemyNames' (which was defined as an array)
     }
+    //after the loop ends, player is either out of health or enemies to fight, so run the endGame function
     endGame();
 
 };
